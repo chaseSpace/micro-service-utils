@@ -10,6 +10,8 @@
 -   ⑦ （可选）最好采用CI/CD流程
 -   ⑧ 各种服务上线脚本（如代码、SQL等）存放在各服务的目录下，这个不要统一存放
 -   ⑨ main文件应存放在各服务根目录下，并且根据情况最好有`README.md`以及项目特定的文档
+-   ⑩ （使用protobuf）规划好proto文件的目录结构（主要是pb-pkg之间的依赖层级），最好每个proto文件加上option go_package="pb/SVC_NAME"来定义生成的pb文件的目录结构，而不是靠protoc命令决定
+-   ⑪ 创建rpc/目录（没有子目录），这个目录下存放所有服务的rpc方法（不是pb.go文件），则代码中的rpc调用就是 rpc.XXX（如rpc.GetUserInfo(), 所有服务的rpc方法名使用同个namespace）
 
 
 对部分建议的解释: 
